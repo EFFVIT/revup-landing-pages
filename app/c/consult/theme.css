@@ -1,0 +1,38 @@
+/* Consult funnel palette — Rev Up Hair Restoration.
+
+   consult.css is shared byte-identical across the fleet and carries RHRLI's
+   tokens in its own #consult block. This file re-declares those tokens for this
+   client and is imported AFTER it.
+
+   The selector is doubled (#consult#consult) on purpose. Same-specificity
+   overrides depend on source order, and a bundler is free to reorder CSS
+   chunks; doubling the id raises specificity so this block wins regardless of
+   the order the two files end up in. That is a deterministic guarantee rather
+   than a convention someone has to remember.
+
+   Only colour tokens are redefined. Layout, spacing, radii and the font stack
+   stay shared, so every client's page is the same page in a different palette
+   — which is the fleet design rule (vary the palette, not the layout).
+
+   UNRATIFIED PALETTE. Rev Up has no locked palette in
+   effvit-featured-image/client-styles.md, and its own site is stock WordPress
+   Twenty Twenty-Five with no brand colour of its own to derive from. These
+   values are a deliberate, restrained choice for a medical consultation page —
+   bright and airy rather than dark, per the fleet design rule — and they are
+   distinct from every sibling on the fleet so no client's page can be mistaken
+   for another's. Treat them as a proposal, not as brand identity, until Joe or
+   the practice ratifies them. Same standing as PNW and Ohio. */
+#consult#consult{
+  --ground:#F6F8F7; --panel:#FFFFFF; --field-bg:#FFFFFF;
+  --ink:#1F2A28; --muted:#576763;
+  --rule:#DFE7E4; --rule-strong:#576763; --placeholder:#576763;
+  --plum:#1F2A28; --plum-deep:#1F2A28; --orange:#1C6B57; --accent-text:#1C6B57;
+  --signal:#1C6B57; --signal-hover:#14513F; --on-signal:#FFFFFF;
+  --ok:#1C6B57; --danger:#B3261E; --focus:#1C6B57;
+}
+
+/* Text wordmark treatment, used when the client has no logo asset. */
+#consult .wordmark[data-wordmark-text]{
+  display:inline-block; font-size:15px; font-weight:800;
+  letter-spacing:-.02em; line-height:1.1; color:var(--ink);
+}
